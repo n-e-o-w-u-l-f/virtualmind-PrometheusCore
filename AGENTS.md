@@ -3,7 +3,7 @@
 # ║ Master agent instruction for nested/sandboxed artificial mind research ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 
-# Agents.md
+# AGENTS.md
 
 Date: 2026-06-09
 
