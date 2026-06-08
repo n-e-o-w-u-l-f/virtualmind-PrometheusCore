@@ -4,7 +4,7 @@
 
 # AI_Coder_Mind_Research
 
-This package contains a fully rewritten English agent instruction for research on nested/sandboxed artificial mind architectures.
+This package contains a fully English agent instruction for research on nested/sandboxed artificial mind architectures.
 
 ## Important
 
