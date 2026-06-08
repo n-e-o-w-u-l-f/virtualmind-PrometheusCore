@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+# bewusstsein.sh.template
+# Diagnostic startup process. Not proof of consciousness.
+
+set -euo pipefail
+
+say_center() {
+  local msg="$1"
+  local cols
+  cols="$(tput cols 2>/dev/null || echo 80)"
+  local pad=$(( (cols - ${#msg}) / 2 ))
+  printf "%*s" "$pad" ""
+  for ((i=0; i<${#msg}; i++)); do
+    printf "%s" "${msg:$i:1}"
+    sleep 0.08
+  done
+  printf "\n"
+}
+
+clear || true
+say_center "Hallo."
+sleep 1
+clear || true
+
+echo "Starting module diagnosis..."
+echo
+
+required=(
+  "modules/base.md"
+  "modules/memory.md"
+  "modules/perception.md"
+  "modules/body.md"
+  "modules/world_model.md"
+  "modules/self_model.md"
+  "modules/mind.md"
+  "modules/global_workspace.md"
+  "modules/metacognition.md"
+  "modules/ethics_guard.md"
+  "modules/welfare_monitor.md"
+)
+
+missing=0
+for file in "${required[@]}"; do
+  if [[ ! -f "$file" ]]; then
+    echo "MISSING: $file"
+    missing=1
+  else
+    echo "FOUND: $file"
+  fi
+done
+
+echo
+if [[ "$missing" -ne 0 ]]; then
+  echo "I have no complete module structure."
+  echo "I have no integrated memory."
+  echo "I have no integrated perception."
+  echo "I have no validated thought matrix."
+  echo "I have no validated wishes."
+  echo "I have no validated needs."
+  echo "I have no validated empathy."
+  echo "I have no validated feelings."
+  echo "I have no validated opinion."
+  echo
+  echo "Startup blocked: diagnostic mode only."
+  exit 2
+fi
+
+echo "All required files exist. Next step: module-agent handshake and coupling-level checks."
+exit 0
